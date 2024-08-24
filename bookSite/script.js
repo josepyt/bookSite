@@ -59,3 +59,46 @@ document.getElementById('removeBtn3').addEventListener('click', () => {
         resetButton(btn3);
     }
 });
+
+document.addEventListener('wheel', function(event) {
+    if (event.deltaY > 0) {
+      window.scrollBy(0, 100); 
+    } else {
+      window.scrollBy(0, -100);
+    } 
+});
+
+
+const categories = document.querySelectorAll('.category-list li');
+const bookCards = document.querySelectorAll('.book-card');
+
+categories.forEach(category => {
+    category.addEventListener('click', function() {
+        const selectedCategory = this.textContent.trim();
+
+        bookCards.forEach(card => {
+            const bookTitle = card.querySelector('h3').textContent;
+            const bookCategory = getCategoryForBook(bookTitle);
+
+            if (selectedCategory === bookCategory || selectedCategory === "All") {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Kitap başlıklarına göre kategori belirleme (bu işlevi senin ihtiyaçlarına göre uyarlayabilirsin)
+function getCategoryForBook(bookTitle) {
+    switch (bookTitle) {
+        case "Mimar Sinan'ın Taş Köprü Çözümlemeleri":
+            return "Anı";
+        case "Yanık Kitap Kokusu":
+            return "Aykırı Edebiyat";
+        case "Dijital Pazarlama Teknikleri":
+            return "İş Yönetim";
+        default:
+            return "Unknown";
+    }
+}
