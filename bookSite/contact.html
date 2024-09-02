@@ -2,32 +2,55 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sumru Yayınevi ile iletişime geçebilirsiniz.">
-    <meta name="author" content="Yusuf Türlü">
-    <link rel="stylesheet" href="styles.css">
-    <title>Sumru - İletişim</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Sumru Yayınevi ile iletişime geçebilirsiniz.">
+        <meta name="author" content="Yusuf Türlü">
+    <link rel="web site icon" href="sumru300.png">
+        <link rel="stylesheet" href="styles.css">
+            <title>Sumru - İletişim</title>
+                <style>
+                    .contact {
+                        background-color: #f2f2f269;
+                            }
+                </style>
 </head>
 <body>
    <div class="contact">
+    <div class="contact-logo">
+        <a href="index.html">
+            <img src="sumru300.png" alt="Sumru Yayınevi Logo">
+        </a>
+    </div>
     <div class="contact-title">
-        <h1>İletişim</h1>
+        <h1 id="title">İletişim</h1>
     </div>
     <div class="contact-info">
-    <div class="adress"><p>Adres: Sumru Yayınevi, İstanbul, İstanbul / 34230</p></div>
-        <div class="phone"><p>Telefon: +90 212 456 78 90</p></div>
-        <div class="e-mail"><p>E-posta: sumru@yayinevi.com</p></div>
+        <div class="adress"><img src="location.png">
+            <p>Halil Rıfat Paşa Mah.<br>
+                PERPA B Blok <br> Kat: 4 No: 370,
+                34384 Şişli/İstanbul</p>
+        </div>
+        <div class="phone"><img src="phone.png">
+            <p id="phone" onmouseover="phoneText()">+90 544 440 3400</p>
+        </div>
+        <div class="e-mail"><img src="mail.png">
+            <p>info@sumru.com.tr</p>
+        </div>
     </div>
-    <div class="contact-form">
-        <form action="#" method="POST">
-            <label for="name">Adınız:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">E-posta:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Mesajınız:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit" value="Gönder">Gönder</button>
-            <button type="reset" value="Temizle">Temizle</button>
+        <div class="contact-form">
+            <form action="" method="POST">
+                    <label for="name">Adınız:</label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                            <label for="email">E-posta:</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            <label for="message">Mesajınız:</label>
+                        <textarea id="message" name="message" autocomplete="message" required></textarea>
+                    <div id="success-message" style="display: none;" >Mesajınız Gönderildi</div>
+                <div id="error-message" style="display: none ;">Lütfen Formu Doldurunuz</div>
+            <button type="submit" value="Gönder" id="submit-btn" onclick="button(event)">Gönder</button>
+        <button type="reset" value="Temizle" id="clear" onclick="errorButton()">Temizle</button>
     </div>
+   </div>
 </body>
+<script src="script.js"></script>
 </html>

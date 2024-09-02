@@ -89,7 +89,7 @@ categories.forEach(category => {
     });
 });
 
-// Kitap başlıklarına göre kategori belirleme (bu işlevi senin ihtiyaçlarına göre uyarlayabilirsin)
+// Kitap başlıklarına göre kategori belirleme (bu işlev ihtiyaçlara göre uyarlanabilir)
 function getCategoryForBook(bookTitle) {
     switch (bookTitle) {
         case "Mimar Sinan'ın Taş Köprü Çözümlemeleri":
@@ -101,4 +101,52 @@ function getCategoryForBook(bookTitle) {
         default:
             return "Unknown";
     }
+}
+
+
+function phoneText() {
+    let phoneText = document.getElementById('phone')
+    phoneText.innerHTML = 'Serbun Behçet';
+    setTimeout(() => {
+        phoneText.innerHTML = '+90 544 440 3400';
+    }, 1700);
+}
+
+//Form için oluşturduğum Mesaj gönderiminin doğrulunu teyit eden fonksiyon
+function button(event) {
+    event.preventDefault(); 
+        let name = document.getElementById('name').value ;
+        let email = document.getElementById('email').value ;
+        let text = document.getElementById('message').value ;
+        if (name!= "" && email!= "" && text!= "" ) {
+            const successMessage = document.getElementById('success-message') ;
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        } else {
+            const errorMessage = document.getElementById('error-message') ;
+            errorMessage.textContent = "Lütfen ilgili alanları eksiksiz doldurunuz" ;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3000);
+        }
+}
+
+function errorButton() {
+    let name = document.getElementById('name').value ;
+    let email = document.getElementById('email').value ;
+    let text = document.getElementById('message').value ;
+        if (name == "" && email == "" && text == "" ) {
+           const errorMessage = document.getElementById('error-message') ;
+           errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3000);
+        } else {
+            name.textContent = "" ;
+            email.textContent = "" ;
+            text.textContent = "" ;
+        }
 }
