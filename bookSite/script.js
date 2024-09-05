@@ -2,20 +2,27 @@ let btn = document.getElementById('shopCard');
 let btn2 = document.getElementById('shopCard2');
 let btn3 = document.getElementById('shopCard3');
 
-btn.addEventListener('click', () => {
-    btn.textContent = 'Ürün sepetinize eklendi!';
-    btn.style.backgroundColor = 'green';
-});
+if (btn) {
+    btn.addEventListener('click', () => {
+        btn.textContent = 'Ürün sepetinize eklendi!';
+        btn.style.backgroundColor = 'green';
+    });
+}
 
-btn2.addEventListener('click', () => {
-    btn2.textContent = 'Ürün sepetinize eklendi!';
-    btn2.style.backgroundColor = 'green';
-});
+if (btn2) {
+    btn2.addEventListener('click', () => {
+        btn2.textContent = 'Ürün sepetinize eklendi!';
+        btn2.style.backgroundColor = 'green';
+    });
+}
 
-btn3.addEventListener('click', () => {
-    btn3.textContent = 'Ürün sepetinize eklendi!';
-    btn3.style.backgroundColor = 'green';
-});
+if (btn3) {
+    btn3.addEventListener('click', () => {
+        btn3.textContent = 'Ürün sepetinize eklendi!';
+        btn3.style.backgroundColor = 'green';
+    });
+}
+
 
 const resetButton = (button) => {
     setTimeout(() => {
@@ -24,41 +31,51 @@ const resetButton = (button) => {
     }, 2000);
 };
 
-document.getElementById('removeBtn').addEventListener('click', () => {
-    if (btn.textContent === 'Ürünü Sepete Ekle') {
-        btn.textContent = 'Ürün sepetinizde değil!';
-        btn.style.backgroundColor = 'gray';
-        resetButton(btn);
-    } else if (btn.textContent === 'Ürün sepetinize eklendi!') {
-        btn.textContent = 'Ürün sepetinizden çıkarıldı!';
-        btn.style.backgroundColor = 'red';
-        resetButton(btn);
-    }
-});
+let removeBtn = document.getElementById('removeBtn');
+let removeBtn2 = document.getElementById('removeBtn2');
+let removeBtn3 = document.getElementById('removeBtn3');
 
-document.getElementById('removeBtn2').addEventListener('click', () => {
-    if (btn2.textContent === 'Ürünü Sepete Ekle') {
-        btn2.textContent = 'Ürün sepetinizde değil!';
-        btn2.style.backgroundColor = 'gray';
-        resetButton(btn2);
-    } else if (btn2.textContent === 'Ürün sepetinize eklendi!') {
-        btn2.textContent = 'Ürün sepetinizden çıkarıldı!';
-        btn2.style.backgroundColor = 'red';
-        resetButton(btn2);
-    }
-});
+if (removeBtn && btn) {
+    removeBtn.addEventListener('click', () => {
+        if (btn.textContent === 'Ürünü Sepete Ekle') {
+            btn.textContent = 'Ürün sepetinizde değil!';
+            btn.style.backgroundColor = 'gray';
+            resetButton(btn);
+        } else if (btn.textContent === 'Ürün sepetinize eklendi!') {
+            btn.textContent = 'Ürün sepetinizden çıkarıldı!';
+            btn.style.backgroundColor = 'red';
+            resetButton(btn);
+        }
+    });
+}
 
-document.getElementById('removeBtn3').addEventListener('click', () => {
-    if (btn3.textContent === 'Ürünü Sepete Ekle') {
-        btn3.textContent = 'Ürün sepetinizde değil!';
-        btn3.style.backgroundColor = 'gray';
-        resetButton(btn3)
-    } else if (btn3.textContent === 'Ürün sepetinize eklendi!') {
-        btn3.textContent = 'Ürün sepetinizden çıkarıldı!';
-        btn3.style.backgroundColor = 'red';
-        resetButton(btn3);
-    }
-});
+if (removeBtn2 && btn2) {
+    removeBtn2.addEventListener('click', () => {
+        if (btn2.textContent === 'Ürünü Sepete Ekle') {
+            btn2.textContent = 'Ürün sepetinizde değil!';
+            btn2.style.backgroundColor = 'gray';
+            resetButton(btn2);
+        } else if (btn2.textContent === 'Ürün sepetinize eklendi!') {
+            btn2.textContent = 'Ürün sepetinizden çıkarıldı!';
+            btn2.style.backgroundColor = 'red';
+            resetButton(btn2);
+        }
+    });
+}
+
+if (removeBtn3 && btn3) {
+    removeBtn3.addEventListener('click', () => {
+        if (btn3.textContent === 'Ürünü Sepete Ekle') {
+            btn3.textContent = 'Ürün sepetinizde değil!';
+            btn3.style.backgroundColor = 'gray';
+            resetButton(btn3);
+        } else if (btn3.textContent === 'Ürün sepetinize eklendi!') {
+            btn3.textContent = 'Ürün sepetinizden çıkarıldı!';
+            btn3.style.backgroundColor = 'red';
+            resetButton(btn3);
+        }
+    });
+}
 
 document.addEventListener('wheel', function(event) {
     if (event.deltaY > 0) {
@@ -103,7 +120,7 @@ function getCategoryForBook(bookTitle) {
     }
 }
 
-
+//İletişim Sayfası için
 function phoneText() {
     let phoneText = document.getElementById('phone')
     phoneText.innerHTML = 'Serbun Behçet';
@@ -150,3 +167,22 @@ function errorButton() {
             text.textContent = "" ;
         }
 }
+
+
+//Duyuru Sayfası
+
+let title = document.getElementById('announcement');
+let description = document.getElementById('description');
+let date = document.getElementById('date');
+
+let news = {
+    title: 'Kitapların Stokları Hakkında',
+    description: 'Kitaplarımız sitemizdeki satışlarında stoklarla sınırlıdır. Kitaplarımızı alırken çeşitli siteleri tercih ettiğinizde basım yılını ve kitap arkasındaki hologramın talimatlara uygun olduğunu teyit ediniz. Korsan satışlara karşı duyarlılığınız için teşekkür ederiz.',
+    date: '01.09.2024'
+}
+
+title.textContent = news.title;
+
+description.textContent = news.description;
+
+date.textContent = news.date;
